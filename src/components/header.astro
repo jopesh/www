@@ -3,12 +3,8 @@ import HeaderLink from "./header-link.astro";
 ---
 
 <header
-  class="py-6 font-serif px-6 mt-4 max-w-xl mx-auto flex items-center justify-between"
+  class="py-6 font-serif px-6 mt-4 max-w-xl mx-auto flex items-center justify-between leading-none"
 >
-  <HeaderLink href="/"
-    ><h1 class="font-semibold leading-none">John Schmidt</h1></HeaderLink
-  >
-  <nav class="flex items-center gap-6">
-    <HeaderLink href="/cv">CV</HeaderLink>
-  </nav>
+  <HeaderLink href="/"><h1 class="tracking-tight">John Schmidt</h1></HeaderLink>
+  <nav class="flex items-center gap-6 font-sans tracking-tight"></nav>
 </header>

@@ -2,8 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseHead from "../components/base-head.astro";
 import Footer from "../components/footer.astro";
-import FormattedDate from "../components/formatted-date.astro";
 import Header from "../components/header.astro";
+import PostList from "../components/post-list.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 const posts = (await getCollection("blog"))
@@ -29,7 +29,7 @@ const posts = (await getCollection("blog"))
         <p>
           Anfragen und Rückmeldungen gerne an
           <a
-            class="underline hover:text-accent transition-colors duration-200"
+            class="underline underline-offset-2 decoration-text-muted/40 hover:text-accent hover:decoration-accent/40 transition-colors duration-200"
             href="mailto:mail@johnschmidt.de"
             >mail@johnschmidt.de</a
           >
@@ -37,18 +37,12 @@ const posts = (await getCollection("blog"))
       </section>
 
       <section>
-        <div class="space-y-1 font-serif">
-          {posts.map((post) => (
-            <a class="group flex items-baseline gap-4 py-1 no-underline" href={`/${post.id}/`}>
-              <span class="w-28 shrink-0 text-text-muted">
-                <FormattedDate date={post.data.pubDate} />
-              </span>
-              <span class="text-text transition-colors duration-200 group-hover:text-accent">
-                {post.data.title}
-              </span>
-            </a>
-          ))}
-        </div>
+        <PostList posts={posts} />
+        <a
+          class="mt-4 inline-block font-sans text-sm text-text-muted/50 hover:text-text-muted transition-colors duration-200"
+          href="/archiv"
+          >Archiv ›</a
+        >
       </section>
     </main>
     <Footer />
