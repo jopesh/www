@@ -1,4 +1,6 @@
 ---
+import ThemePicker from "./theme-picker.astro";
+
 const today = new Date();
 ---
 
@@ -24,7 +26,10 @@ const today = new Date();
       >↗ linkedin</a
     >
   </div>
-  <p class="text-xs tracking-wide text-text-muted">
-    © {today.getFullYear()} John Schmidt
-  </p>
+  <div class="flex items-center justify-between">
+    <p class="text-xs tracking-wide text-text-muted">
+      © {today.getFullYear()} John Schmidt
+    </p>
+    <ThemePicker />
+  </div>
 </footer>
