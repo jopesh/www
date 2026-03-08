@@ -1,0 +1,30 @@
+---
+const today = new Date();
+---
+
+<footer class="max-w-xl mx-auto px-6 my-12">
+  <div class="flex gap-6 mb-4 text-sm">
+    <a
+      href="/rss.xml"
+      class="text-text-light hover:text-accent transition-colors duration-200"
+      >↗ rss</a
+    >
+    <a
+      href="https://github.com/jopesh"
+      class="text-text-light hover:text-accent transition-colors duration-200"
+      target="_blank"
+      rel="noopener noreferrer"
+      >↗ github</a
+    >
+    <a
+      href="https://www.linkedin.com/in/john-schmidt-aachen"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-text-light hover:text-accent transition-colors duration-200"
+      >↗ linkedin</a
+    >
+  </div>
+  <p class="text-xs tracking-wide text-text-muted">
+    © {today.getFullYear()} John Schmidt
+  </p>
+</footer>

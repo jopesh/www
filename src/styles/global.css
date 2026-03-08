@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/vollkorn";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Geist Variable", sans-serif;
+  --font-serif: "Vollkorn Variable", Georgia, serif;
+  --color-accent: #b8572f;
+  --color-accent-dark: #9a4520;
+  --color-paper: #faf8f5;
+  --color-paper-dark: #f5f2ed;
+  --color-text: #3d3834;
+  --color-text-light: #5c544e;
+  --color-text-muted: #8b8178;
+  --color-border: #e8e4df;
+}

@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../components/base-head.astro";
+import Footer from "../components/footer.astro";
+import FormattedDate from "../components/formatted-date.astro";
+import Header from "../components/header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="text-text bg-paper">
+    <Header />
+    <main class="max-w-xl mx-auto px-6 pt-6 pb-12">
+      <section class="mb-16 space-y-6 text-text-light leading-relaxed">
+        <p>
+          Ich bin Notfallsanitäter und arbeite als Dozent in der Ausbildung von
+          Rettungsdienstpersonal in Deutschland. Meine Arbeit bewegt sich an der
+          Schnittstelle von präklinischer Medizin, pädagogischer Praxis und dem
+          Versuch, beides ehrlich zu beschreiben.
+        </p>
+        <p>
+          Anfragen und Rückmeldungen gerne an
+          <a
+            class="underline hover:text-accent transition-colors duration-200"
+            href="mailto:mail@johnschmidt.de"
+            >mail@johnschmidt.de</a
+          >
+        </p>
+      </section>
+
+      <section>
+        <div class="space-y-1 font-serif">
+          {posts.map((post) => (
+            <a class="group flex items-baseline gap-4 py-1 no-underline" href={`/${post.id}/`}>
+              <span class="w-28 shrink-0 text-text-muted">
+                <FormattedDate date={post.data.pubDate} />
+              </span>
+              <span class="text-text transition-colors duration-200 group-hover:text-accent">
+                {post.data.title}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
