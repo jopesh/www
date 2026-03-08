@@ -1,0 +1,20 @@
+---
+import FormattedDate from "./formatted-date.astro";
+
+interface Props {
+  class?: string;
+  date: Date;
+  updatedDate?: Date;
+}
+
+const { date, updatedDate, class: className } = Astro.props;
+---
+
+<p class:list={[className, "flex"]}>
+  <FormattedDate date={date} />
+  {updatedDate && (
+            <span class="italic">
+                — Zuletzt aktualisiert am <FormattedDate date={updatedDate} />
+            </span>
+        )}
+</p>

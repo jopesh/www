@@ -15,3 +15,31 @@
   --color-text-muted: #8b8178;
   --color-border: #e8e4df;
 }
+
+.prose :not(pre) > code {
+  padding: 0.125rem 0.375rem;
+  background-color: var(--color-paper-dark);
+  border-radius: 0.25rem;
+}
+
+.prose mark {
+  padding: 0.125rem 0.25rem;
+  color: var(--color-text);
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 15%,
+    var(--color-paper)
+  );
+  border-radius: 0.125rem;
+}
+
+.prose kbd {
+  padding: 0.125rem 0.375rem;
+  font-family: var(--font-sans);
+  font-size: 0.875em;
+  color: var(--color-text);
+  background-color: var(--color-paper-dark);
+  border: 1px solid var(--color-border);
+  border-bottom-width: 2px;
+  border-radius: 0.25rem;
+}

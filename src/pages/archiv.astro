@@ -1,10 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/base-head.astro";
-import Footer from "../components/footer.astro";
-import Header from "../components/header.astro";
 import PostList from "../components/post-list.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import Base from "../layouts/base.astro";
 
 const posts = await getCollection("blog");
 
@@ -27,32 +25,23 @@ const years = Object.keys(postsByYear)
   .sort((a, b) => b - a);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead
-      title={`Schreiben | ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-  </head>
-  <body class="text-text bg-paper">
-    <Header />
-    <main class="max-w-xl mx-auto px-6 pt-6 pb-12">
-      <h1 class="font-serif text-xl tracking-tight font-light text-text mb-8">
-        Archiv
-      </h1>
+<Base
+  title={`Schreiben | ${SITE_TITLE}`}
+  description={SITE_DESCRIPTION}
+  class="pt-6"
+>
+  <h1 class="font-serif text-xl tracking-tight font-light text-text mb-8">
+    Archiv
+  </h1>
 
-      <div class="space-y-12">
-        {years.map((year) => (
-          <section>
-            <h2 class="mb-4 border-gray-200 border-b pb-2 font-light text-text-muted text-xs">
-              {year}
-            </h2>
-            <PostList posts={postsByYear[year]} />
-          </section>
-        ))}
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+  <div class="space-y-12">
+    {years.map((year) => (
+      <section>
+        <h2 class="mb-4 border-gray-200 border-b pb-2 font-light text-text-muted text-xs">
+          {year}
+        </h2>
+        <PostList posts={postsByYear[year]} />
+      </section>
+    ))}
+  </div>
+</Base>

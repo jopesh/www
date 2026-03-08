@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "./formatted-date.astro";
+import PostDate from "./post-date.astro";
+import PostTitle from "./post-title.astro";
 
 interface Props {
   basePath?: string;
@@ -12,16 +13,19 @@ const { posts, basePath = "/" } = Astro.props;
 
 <div class="space-y-1 font-serif">
   {posts.map((post) => (
-            <a
-                class="group flex items-baseline gap-4 py-1 no-underline"
-                href={`${basePath}${post.id}/`}
-            >
-                <span class="w-28 shrink-0 font-sans text-sm text-text-muted">
-                    <FormattedDate date={post.data.pubDate} />
-                </span>
-                <span class="text-text transition-colors duration-200 group-hover:text-accent">
-                    {post.data.title}
-                </span>
-            </a>
-        ))}
+    <a
+      class="group flex items-baseline gap-4 py-1 no-underline"
+      href={`${basePath}${post.id}/`}
+      transition:name={`post-${post.id}`}
+    >
+      <PostDate
+        class="w-28 shrink-0 font-sans text-sm text-text-muted"
+        date={post.data.pubDate}
+      />
+      <PostTitle
+        class="block text-text transition-colors duration-200 group-hover:text-accent"
+        title={post.data.title}
+      />
+    </a>
+  ))}
 </div>

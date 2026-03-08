@@ -1,50 +1,38 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/base-head.astro";
-import Footer from "../components/footer.astro";
-import Header from "../components/header.astro";
 import PostList from "../components/post-list.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import Base from "../layouts/base.astro";
 
 const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="text-text bg-paper">
-    <Header />
-    <main class="max-w-xl mx-auto px-6 pt-6 pb-12">
-      <section class="mb-16 space-y-6 text-text-light leading-relaxed">
-        <p>
-          Ich bin Notfallsanitäter und arbeite als Dozent in der Ausbildung von
-          Rettungsdienstpersonal in Deutschland. Meine Arbeit bewegt sich an der
-          Schnittstelle von präklinischer Medizin, pädagogischer Praxis und dem
-          Versuch, beides ehrlich zu beschreiben.
-        </p>
-        <p>
-          Anfragen und Rückmeldungen gerne an
-          <a
-            class="underline underline-offset-2 decoration-text-muted/40 hover:text-accent hover:decoration-accent/40 transition-colors duration-200"
-            href="mailto:mail@johnschmidt.de"
-            >mail@johnschmidt.de</a
-          >
-        </p>
-      </section>
+<Base title={SITE_TITLE} description={SITE_DESCRIPTION} class="pt-6">
+  <section class="mb-16 space-y-6 text-text-light leading-relaxed">
+    <p>
+      Ich bin Notfallsanitäter und arbeite als Dozent in der Ausbildung von
+      Rettungsdienstpersonal in Deutschland. Meine Arbeit bewegt sich an der
+      Schnittstelle von präklinischer Medizin, pädagogischer Praxis und dem
+      Versuch, beides ehrlich zu beschreiben.
+    </p>
+    <p>
+      Anfragen und Rückmeldungen gerne an
+      <a
+        class="underline underline-offset-2 decoration-text-muted/40 hover:text-accent hover:decoration-accent/40 transition-colors duration-200"
+        href="mailto:mail@johnschmidt.de"
+        >mail@johnschmidt.de</a
+      >
+    </p>
+  </section>
 
-      <section>
-        <PostList posts={posts} />
-        <a
-          class="mt-4 inline-block font-sans text-sm text-text-muted/50 hover:text-text-muted transition-colors duration-200"
-          href="/archiv"
-          >Archiv ›</a
-        >
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+  <section>
+    <PostList posts={posts} />
+    <a
+      class="mt-4 inline-block font-sans text-sm text-text-muted/50 hover:text-text-muted transition-colors duration-200"
+      href="/archiv"
+      >Archiv ›</a
+    >
+  </section>
+</Base>

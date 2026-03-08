@@ -1,0 +1,104 @@
+---
+import BaseHead from "../components/base-head.astro";
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+
+interface Props {
+  class?: string;
+  description: string;
+  title: string;
+}
+
+const { title, description, class: className } = Astro.props;
+
+const fadeUp = {
+  forwards: {
+    old: {
+      name: "fadeUpOut",
+      duration: "0.3s",
+      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+      fillMode: "both",
+    },
+    new: {
+      name: "fadeUpIn",
+      duration: "0.3s",
+      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+      fillMode: "both",
+    },
+  },
+  backwards: {
+    old: {
+      name: "fadeDownOut",
+      duration: "0.3s",
+      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+      fillMode: "both",
+    },
+    new: {
+      name: "fadeDownIn",
+      duration: "0.3s",
+      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+      fillMode: "both",
+    },
+  },
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="font-sans text-text bg-paper">
+    <Header />
+    <main
+      transition:animate={fadeUp}
+      class:list={["max-w-xl mx-auto px-6 pb-12", className]}
+    >
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  @keyframes fadeUpOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes fadeUpIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeDownOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+  @keyframes fadeDownIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
