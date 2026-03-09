@@ -3,6 +3,10 @@
 @import "@fontsource-variable/vollkorn";
 @plugin "@tailwindcss/typography";
 
+html {
+  overflow-y: scroll;
+}
+
 @theme {
   --font-sans: "Geist Variable", sans-serif;
   --font-serif: "Vollkorn Variable", Georgia, serif;
