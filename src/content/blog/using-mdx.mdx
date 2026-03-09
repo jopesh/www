@@ -1,31 +1,133 @@
 ---
-title: 'Using MDX'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jun 01 2024'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+title: 'Künstliche Intelligenz in der Berufsbildung'
+description: 'Wie lässt sich die rasante Entwicklung in der KI auf die Berufliche Bildung im Gesundheitswesen übertragen?'
+pubDate: 'Mar 09 2026'
 ---
 
-This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
+Wie lässt sich die rasante Entwicklung in der KI auf die Berufliche Bildung im Gesundheitswesen übertragen? In den letzten Wochen erlebe ich in meiner Hobby-Heimat, der Softwareentwicklung, dass die Produktivität mit den richtigen Tools um ein vielfaches multipliziert werden kann. Eine Frage ist also nahelegend: was haben wir in der beruflichen Bildung  als Lehrkräfte davon?
 
-## Why MDX?
+In meinem Fall, der beruflichen Bildung von Notfallsanitätern, komme ich bei den gängigen Tools schnell an die Grenzen und bin unzufrieden mit dem Output. Auch andere Lehrkräfte in meinem Team berichten von dieser Erfahrung. Die Modelle sind zwar mit den groben Rahmenbedingungen der Berufsausbildung in Deutschland mehr oder weniger vertraut, kommen aber bei der Komplexität der föderalen Ausgestaltung und den entscheidenden regionalen Details schnell an ihre Grenzen. Insbesondere in der Branche Rettungsdienst. (Fast) jedes Bundesland mit eigenem Rahmenlehrplan und verschiedenen Einflüssen von Landesgesetzen. Ein Beispiel:
 
-MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/integrations-guide/mdx/#mdx-in-astro) for things like interactive charts or alerts.
+> Erstelle mir ein Fallbeispiel zum Thema Schlaganfall.
 
-If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
+Ein intelligentes Modell kann auf diesen Prompt möglicherweise deduzieren, dass es sich hier um ein medizinisches Fallbeispiel für einen medizinischen Ausbildungskontext handelt. Schauen wir doch mal, was dabei rauskommt (mit GPT 5.2 von OpenAI):
 
-## Example
+```markdown
+Gerne, John 😊 Hier ist ein ausführliches Fallbeispiel zum Thema **Schlaganfall**, das sich gut für Unterricht, Prüfungsvorbereitung oder Fallanalyse eignet:
 
-Here is how you import and use a UI component inside of MDX.  
-When you open this page in the browser, you should see the clickable button below.
+---
 
-import HeaderLink from '../../components/header-link.astro';
+## 🏥 Fallbeispiel: Akuter Schlaganfall
 
-<HeaderLink href="#" onclick="alert('clicked!')">
-	Embedded component in MDX
-</HeaderLink>
+### 1. Patientendaten  
+- **Name:** Herr M.  
+- **Alter:** 68 Jahre  
+- **Familienstand:** Verheiratet  
+- **Beruf:** Rentner (ehemals Kfz-Mechaniker)  
 
-## More Links
+---
 
-- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
-- [Astro Usage Documentation](https://docs.astro.build/en/basics/astro-pages/#markdownmdx-pages)
-- **Note:** [Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default.
+### 2. Anamnese  
+
+#### Aktuelle Situation  
+Herr M. wird um 08:30 Uhr vom Rettungsdienst in die Notaufnahme gebracht.  
+Seine Ehefrau berichtet, dass er beim Frühstück plötzlich die Kaffeetasse fallen ließ und „komisch gesprochen“ habe. Außerdem sei die rechte Gesichtshälfte „heruntergehangen“.  
+
+Der Symptombeginn war gegen **07:50 Uhr**.  
+
+#### Vorerkrankungen  
+- Arterielle Hypertonie (seit 15 Jahren)  
+- Diabetes mellitus Typ 2  
+- Hyperlipidämie  
+- Nikotinabusus (40 Packungsjahre)  
+
+#### Medikation  
+- Ramipril 5 mg 1-0-0  
+- Metformin 1000 mg 1-0-1  
+- Atorvastatin 20 mg 0-0-1  
+
+---
+
+### 3. Klinischer Befund bei Aufnahme  
+
+- Bewusstsein: wach, aber verlangsamt reagierend  
+- Sprache: verwaschene Sprache (Dysarthrie), Wortfindungsstörungen (Aphasie)  
+- Motorik:  
+  - Rechtsseitige Hemiparese (Arm stärker betroffen als Bein)  
+- Gesicht:  
+  - Rechtsseitige Fazialisparese  
+- Sensibilität:  
+  - Vermindertes Berührungsempfinden rechts  
+- Blutdruck: 190/100 mmHg  
+- Puls: 92/min, regelmäßig  
+- Blutzucker: 168 mg/dl  
+
+FAST-Test:  
+- **F**ace: auffällig  
+- **A**rms: rechter Arm sinkt ab  
+- **S**peech: verwaschen  
+- **T**ime: Symptombeginn < 1 Stunde  
+
+→ Verdacht auf **akuten ischämischen Schlaganfall**
+
+---
+
+### 4. Diagnostik  
+
+- Notfall-CT (CCT): Kein Hinweis auf Hirnblutung  
+- CT-Angiografie: Verschluss der linken A. cerebri media  
+- NIHSS-Score: 12 Punkte (mittelschwerer Schlaganfall)
+
+---
+
+### 5. Therapie  
+
+Da der Symptombeginn weniger als 4,5 Stunden zurückliegt:  
+
+✅ **Intravenöse Thrombolyse (Lysetherapie)** wird eingeleitet.  
+✅ Vorbereitung auf mögliche mechanische Thrombektomie.  
+✅ Überwachung auf der Stroke Unit.  
+
+Zusätzlich:  
+- Blutdruckkontrolle  
+- Blutzuckereinstellung  
+- Thromboseprophylaxe  
+- Frühmobilisation und Beginn der Physiotherapie  
+
+---
+
+### 6. Weiterer Verlauf  
+
+Nach 48 Stunden zeigt sich:  
+- Leichte Besserung der Beinmotorik  
+- Sprache weiterhin deutlich eingeschränkt  
+- Arm weiterhin stark paretisch  
+
+Rehabilitation wird eingeleitet (Physio-, Ergo- und Logopädie).  
+
+---
+
+### 7. Diskussionsfragen (für Unterricht oder Prüfung)  
+
+1. Welche Risikofaktoren liegen bei Herrn M. vor?  
+2. Warum ist der genaue Zeitpunkt des Symptombeginns so entscheidend?  
+3. Worin unterscheiden sich ischämischer und hämorrhagischer Schlaganfall?  
+4. Welche pflegerischen Schwerpunkte ergeben sich auf der Stroke Unit?  
+5. Welche Maßnahmen dienen der Sekundärprävention?  
+
+---
+
+Wenn du möchtest, kann ich dir auch:  
+- ✅ ein Pflegefallbeispiel mit Pflegeplanung (AEDL/ATL oder nach NANDA)  
+- ✅ ein verkürztes Fallbeispiel für eine Klausur  
+- ✅ ein sehr komplexes Fallbeispiel für Examen  
+- ✅ ein Fallbeispiel mit Komplikationen (z. B. Hirnödem)  
+
+Was brauchst du genau?
+```
+
+Man sieht, dass die Deduktion des Modells aus unseren wenigen Informationen eher Richtung Pflege bzw. klinisches Setting tendiert. Das macht auch Sinn, denn die Wahrscheinlichkeit, dass die Modelle mit Daten aus diesem Kontext trainiert worden sind, ist hoch. Insofern besteht dort ein klarer _Daten-Bias_. 
+
+Im Gegensatz dazu ist der Rettungsdienst wohl eher eine _Datennische_. Insbesondere der ***deutsche*** Rettungsdienst nun ebenfalls nicht der dominierende Teil von (englischsprachiger) Literatur und anderen dominierenden Quellen der KI-Trainings. Solange wir keine fortschrittlichen deutschsprachigen Modelle mit einem Fokus auf deutschsprachiges Training haben, wird diese _Nische_ höchstwahrscheinlich bestehen bleiben.
+
+Für mich hat sich bewährt, möglichst konkreten und spezifischen Kontext zu liefern und das gewünschte Ergebnis möglichst mit Beispielen zu beschreiben. Damit lassen sich erstaunlich nützliche Ergebnisse produzieren.

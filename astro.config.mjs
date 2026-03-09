@@ -11,7 +11,10 @@ export default defineConfig({
   integrations: [
     mdx({
       shikiConfig: {
-        theme: "catppuccin-mocha",
+        themes: {
+          light: "catppuccin-latte",
+          dark: "catppuccin-mocha",
+        },
       },
     }),
     sitemap(),
