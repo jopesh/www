@@ -37,7 +37,7 @@ const years = Object.keys(postsByYear)
   <div class="space-y-12">
     {years.map((year) => (
       <section>
-        <h2 class="mb-4 border-gray-200 border-b pb-2 font-light text-text-muted text-xs">
+        <h2 class="mb-4 border-border border-b pb-2 font-light text-text-muted text-xs">
           {year}
         </h2>
         <PostList posts={postsByYear[year]} />
