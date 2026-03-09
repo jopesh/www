@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "astro/types";
+import { generateBlurPlaceholder } from "../lib/placeholder";
+
+type Props = ComponentProps<typeof Image>;
+
+const { src, alt, class: className, ...rest } = Astro.props;
+const placeholder = await generateBlurPlaceholder(
+  src as Parameters<typeof generateBlurPlaceholder>[0]
+);
+---
+
+<div
+  class:list={["overflow-hidden", className]}
+  style={`background-image: url(${placeholder}); background-size: cover; background-position: center;`}
+>
+  <Image src={src} alt={alt} class="w-full" {...rest} />
+</div>
