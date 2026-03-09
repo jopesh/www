@@ -1,0 +1,212 @@
+---
+title: 'Markdown Kitchen Sink'
+description: 'Eine umfassende Demonstration aller Markdown- und MDX-Funktionen, die in diesem Blog unterstützt werden.'
+pubDate: 'Mar 09 2026'
+heroImage: '../../assets/blog-placeholder-1.jpg'
+---
+
+Dieser Beitrag dient als umfassende Referenz für alle unterstützten Markdown- und MDX-Funktionen. Er zeigt, wie verschiedene Elemente gerendert werden und kann als Vorlage für zukünftige Beiträge dienen.
+
+---
+
+## Überschriften
+
+Überschriften werden mit `##` bis `######` erstellt. Die erste Überschriftsebene (`#`) wird vom Layout automatisch als Seitentitel gerendert.
+
+### Überschrift Ebene 3
+
+#### Überschrift Ebene 4
+
+##### Überschrift Ebene 5
+
+###### Überschrift Ebene 6
+
+---
+
+## Textformatierung
+
+Dies ist ein normaler Absatz mit verschiedenen Formatierungen: **fetter Text**, *kursiver Text*, ***fett und kursiv***, ~~durchgestrichener Text~~ und `Inline-Code`.
+
+Hier ist ein zweiter Absatz, um den Abstand zwischen Absätzen zu demonstrieren. Man kann auch <mark>markierten Text</mark> verwenden, <kbd>Tastenkürzel</kbd> darstellen und <abbr title="Hypertext Markup Language">HTML</abbr>-Abkürzungen nutzen.
+
+---
+
+## Links
+
+- [Externer Link zu Astro](https://astro.build)
+- [Link mit Titel](https://docs.astro.build "Astro Dokumentation")
+- Automatische URL: https://example.com
+
+---
+
+## Listen
+
+### Ungeordnete Liste
+
+- Erster Punkt
+- Zweiter Punkt
+  - Verschachtelter Punkt A
+  - Verschachtelter Punkt B
+    - Noch tiefer verschachtelt
+- Dritter Punkt
+
+### Geordnete Liste
+
+1. Erster Schritt
+2. Zweiter Schritt
+   1. Unterschritt A
+   2. Unterschritt B
+3. Dritter Schritt
+
+### Aufgabenliste
+
+- [x] Astro-Projekt aufsetzen
+- [x] Blog-Layout erstellen
+- [ ] Weitere Beiträge schreiben
+- [ ] Deployment konfigurieren
+
+---
+
+## Zitate
+
+> Dies ist ein einfaches Blockzitat. Es kann mehrere Zeilen umfassen und wird optisch vom restlichen Text abgehoben.
+
+> **Verschachtelte Zitate:**
+>
+> > Dies ist ein verschachteltes Zitat. Es zeigt, dass Blockzitate ineinander geschachtelt werden können.
+
+---
+
+## Code
+
+### Inline-Code
+
+Verwende die Funktion `console.log()` oder die Variable `const name = "Astro"` im Text.
+
+### TypeScript
+
+```typescript
+interface BlogPost {
+  title: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: ImageMetadata;
+}
+
+const fetchPosts = async (): Promise<BlogPost[]> => {
+  const posts = await getCollection("blog");
+  return posts.map((post) => post.data);
+};
+```
+
+### HTML
+
+```html
+<article class="prose">
+  <h1>Willkommen</h1>
+  <p>Dies ist ein <strong>Beispiel</strong>.</p>
+  <img src="/bild.jpg" alt="Beschreibung" />
+</article>
+```
+
+### CSS
+
+```css
+:root {
+  --color-accent: #b8572f;
+  --color-bg: #fafaf8;
+}
+
+.prose {
+  max-width: 65ch;
+  line-height: 1.75;
+}
+```
+
+### Bash
+
+```bash
+# Astro-Projekt erstellen und starten
+bun create astro@latest mein-blog
+cd mein-blog
+bun dev
+```
+
+### JSON
+
+```json
+{
+  "name": "mein-blog",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  }
+}
+```
+
+---
+
+## Tabellen
+
+| Feature         | Unterstützt | Hinweis                  |
+| :-------------- | :---------: | -----------------------: |
+| Markdown        | Ja          | Standardformat           |
+| MDX             | Ja          | Erweitert mit JSX        |
+| Bilder          | Ja          | Optimiert durch Vercel   |
+| Syntax-Highlighting | Ja      | Via Shiki                |
+| Tabellen        | Ja          | GFM-Erweiterung         |
+
+---
+
+## Bilder
+
+Das folgende Bild wird über Astros Bildoptimierung verarbeitet:
+
+![Platzhalterbild für Blogbeiträge](../../assets/blog-placeholder-1.jpg)
+
+---
+
+## Fußnoten
+
+Astro bietet hervorragende Performance[^1] und unterstützt moderne Web-Standards[^2].
+
+[^1]: Astro liefert standardmäßig null JavaScript an den Client.
+[^2]: Einschließlich View Transitions, Content Collections und Islands Architecture.
+
+---
+
+## HTML-Elemente
+
+### Details und Summary
+
+<details>
+<summary>Klicken zum Aufklappen</summary>
+
+Dieser Inhalt ist standardmäßig verborgen und wird erst beim Klicken auf die Zusammenfassung angezeigt. Das ist nützlich für ergänzende Informationen oder FAQ-Bereiche.
+
+</details>
+
+### Definitionsliste
+
+<dl>
+  <dt>Astro</dt>
+  <dd>Ein modernes Web-Framework für inhaltsreiche Websites.</dd>
+
+  <dt>MDX</dt>
+  <dd>Markdown-Erweiterung, die JSX-Komponenten einbetten kann.</dd>
+
+  <dt>Vercel</dt>
+  <dd>Cloud-Plattform für Frontend-Deployments mit Edge-Optimierung.</dd>
+</dl>
+
+### Tastenkürzel
+
+Drücke <kbd>Strg</kbd> + <kbd>S</kbd> zum Speichern oder <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> für die Befehlspalette.
+
+---
+
+## Horizontale Trennlinie
+
+Die Trennlinien zwischen den Abschnitten werden mit `---` erzeugt und helfen, den Inhalt visuell zu gliedern.
