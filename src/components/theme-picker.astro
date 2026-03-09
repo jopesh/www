@@ -1,26 +1,31 @@
-<div class="flex items-center gap-1 text-xs">
+---
+import Icon from "./icon.astro";
+---
+
+<div class="flex items-center gap-0.5">
   <button
     data-theme-value="system"
     type="button"
-    class="theme-btn text-text-muted hover:text-accent transition-colors duration-200"
+    class="theme-btn p-1.5 rounded text-text-muted hover:text-accent transition-colors duration-200"
+    aria-label="System-Theme"
   >
-    System
+    <Icon name="monitor" class="size-3.5" />
   </button>
-  <span class="text-text-muted/40">·</span>
   <button
     data-theme-value="light"
     type="button"
-    class="theme-btn text-text-muted hover:text-accent transition-colors duration-200"
+    class="theme-btn p-1.5 rounded text-text-muted hover:text-accent transition-colors duration-200"
+    aria-label="Helles Theme"
   >
-    Hell
+    <Icon name="sun" class="size-3.5" />
   </button>
-  <span class="text-text-muted/40">·</span>
   <button
     data-theme-value="dark"
     type="button"
-    class="theme-btn text-text-muted hover:text-accent transition-colors duration-200"
+    class="theme-btn p-1.5 rounded text-text-muted hover:text-accent transition-colors duration-200"
+    aria-label="Dunkles Theme"
   >
-    Dunkel
+    <Icon name="moon" class="size-3.5" />
   </button>
 </div>
 
