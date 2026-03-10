@@ -12,16 +12,16 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/vercel": "^9.0.4",
+    "@astrojs/mdx": "4.3.14",
+    "@astrojs/rss": "4.0.17",
+    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/vercel": "9.0.5",
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/vollkorn": "^5.2.10",
     "@phosphor-icons/core": "^2.1.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.17.1",
+    "astro": "6.0.1",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.2.1"
   },
