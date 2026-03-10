@@ -90,3 +90,15 @@ html.dark .astro-code span {
   margin-left: 1.5em;
   color: var(--color-text-light);
 }
+
+.prose [data-footnote-backref] svg {
+  display: inline;
+  margin-left: 0.125em;
+  vertical-align: middle;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.prose [data-footnote-backref]:hover svg {
+  opacity: 1;
+}

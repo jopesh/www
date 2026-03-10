@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import rehypeFootnotes from "./src/plugins/rehype-footnotes";
 import shikiDark from "./src/styles/shiki-dark.json";
 import shikiLight from "./src/styles/shiki-light.json";
 
@@ -16,6 +17,7 @@ export default defineConfig({
   }),
   integrations: [
     mdx({
+      rehypePlugins: [rehypeFootnotes],
       shikiConfig: {
         themes: {
           light: shikiLight,
