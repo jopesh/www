@@ -12,25 +12,25 @@ html {
 @theme {
   --font-sans: "Geist Variable", sans-serif;
   --font-serif: "Vollkorn Variable", Georgia, serif;
-  --color-accent: #b8572f;
-  --color-accent-dark: #9a4520;
-  --color-paper: #faf8f5;
-  --color-paper-dark: #f5f2ed;
-  --color-text: #3d3834;
-  --color-text-light: #5c544e;
-  --color-text-muted: #8b8178;
-  --color-border: #e8e4df;
+  --color-accent: oklch(52% 0.13 107.3);
+  --color-accent-dark: oklch(42% 0.11 107.3);
+  --color-paper: oklch(98.8% 0.003 106.5);
+  --color-paper-dark: oklch(96.6% 0.005 106.5);
+  --color-text: oklch(22.8% 0.013 107.4);
+  --color-text-light: oklch(39.4% 0.023 107.4);
+  --color-text-muted: oklch(73.7% 0.021 106.9);
+  --color-border: oklch(93% 0.007 106.5);
 }
 
 html.dark {
-  --color-accent: #d4845f;
-  --color-accent-dark: #e8a882;
-  --color-paper: #1c1a17;
-  --color-paper-dark: #252220;
-  --color-text: #e8e2db;
-  --color-text-light: #c4bbb2;
-  --color-text-muted: #8b8178;
-  --color-border: #3a3632;
+  --color-accent: oklch(70% 0.11 106.9);
+  --color-accent-dark: oklch(82% 0.09 106.6);
+  --color-paper: oklch(15.3% 0.006 107.1);
+  --color-paper-dark: oklch(22.8% 0.013 107.4);
+  --color-text: oklch(96.6% 0.005 106.5);
+  --color-text-light: oklch(88% 0.011 106.6);
+  --color-text-muted: oklch(58% 0.031 107.3);
+  --color-border: oklch(28.6% 0.016 107.4);
   color-scheme: dark;
 }
 
@@ -39,6 +39,156 @@ html.dark .astro-code span {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
 }
+
+/* ── Blog article prose ──────────────────────────────────── */
+
+.prose-article {
+  /* Headings */
+  --tw-prose-headings: var(--color-text);
+
+  & :where(h2, h3, h4, h5, h6) {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+
+  & :where(h2) {
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    font-size: 1.625rem;
+    line-height: 1.3;
+  }
+
+  & :where(h3) {
+    margin-top: 2em;
+    font-size: 1.25rem;
+  }
+
+  /* Body text */
+  & :where(p) {
+    letter-spacing: 0.01em;
+  }
+
+  /* Drop cap on first paragraph — use initial-letter for proper alignment */
+  & > p:first-of-type::first-letter {
+    margin-right: 0.22em;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-text);
+    initial-letter: 2;
+  }
+
+  /* Links */
+  & :where(a) {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--color-text-muted) 40%,
+      transparent
+    );
+    text-underline-offset: 2px;
+    transition:
+      color 0.2s,
+      text-decoration-color 0.2s;
+  }
+
+  & :where(a):hover {
+    color: var(--color-accent);
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--color-accent) 40%,
+      transparent
+    );
+  }
+
+  /* Blockquotes */
+  & :where(blockquote) {
+    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+    margin-block: 2.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-text);
+    background-color: color-mix(
+      in srgb,
+      var(--color-paper-dark) 60%,
+      transparent
+    );
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
+
+  /* Strong */
+  & :where(strong) {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  /* Code */
+  & :where(code) {
+    font-weight: 400;
+    color: var(--color-text);
+  }
+
+  & :where(pre) {
+    color: var(--color-text-light);
+    background-color: var(--color-paper-dark);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+  }
+
+  /* Figures */
+  & :where(figcaption) {
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  /* Lists */
+  & :where(li)::marker {
+    color: var(--color-text-muted);
+  }
+
+  /* Tables */
+  & :where(th),
+  & :where(td) {
+    border-color: var(--color-border);
+  }
+
+  /* Images */
+  & :where(img) {
+    border-radius: 0.125rem;
+  }
+
+  /* Horizontal rules — centered ornament */
+  & :where(hr) {
+    margin-block: 3rem;
+    text-align: center;
+    border: none;
+  }
+
+  & :where(hr)::after {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5em;
+    content: "* * *";
+  }
+
+  /* Lead text */
+  & :where(.lead) {
+    color: var(--color-text-light);
+  }
+}
+
+/* ── Inline elements ────────────────────────────────────── */
 
 .prose :not(pre) > code {
   padding: 0.125rem 0.375rem;
@@ -99,6 +249,55 @@ html.dark .astro-code span {
   transition: opacity 0.2s;
 }
 
+.prose blockquote::before,
+.prose blockquote::after {
+  content: none;
+}
+
+.prose blockquote p {
+  margin: 0;
+}
+
 .prose [data-footnote-backref]:hover svg {
   opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .prose pre,
+  .prose img,
+  .prose blockquote {
+    width: calc(100% + 6rem);
+    max-width: calc(100% + 6rem);
+    margin-right: -3rem;
+    margin-left: -3rem;
+  }
+
+  .prose-bq-rule blockquote {
+    width: auto;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.prose section[data-footnotes] {
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+  font-size: 0.875em;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+.prose blockquote blockquote {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+html.dark .prose-article blockquote {
+  background-color: color-mix(
+    in srgb,
+    var(--color-paper-dark) 40%,
+    transparent
+  );
 }
