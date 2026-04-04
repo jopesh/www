@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import BaseHead from "../components/base-head.astro";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
@@ -13,32 +14,43 @@ const { title, description, class: className } = Astro.props;
 
 const fadeUp = {
   forwards: {
-    old: {
-      name: "fadeUpOut",
-      duration: "0.3s",
-      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
-      fillMode: "both",
-    },
-    new: {
-      name: "fadeUpIn",
-      duration: "0.3s",
-      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
-      fillMode: "both",
-    },
+    old: [
+      {
+        name: "fade-up-out",
+        duration: "0.15s",
+        easing: "ease-in",
+        fillMode: "both",
+      },
+    ],
+    new: [
+      {
+        name: "fade-up-in",
+        duration: "0.25s",
+        easing: "ease-out",
+        fillMode: "both",
+        delay: "0.05s",
+      },
+    ],
   },
   backwards: {
-    old: {
-      name: "fadeDownOut",
-      duration: "0.3s",
-      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
-      fillMode: "both",
-    },
-    new: {
-      name: "fadeDownIn",
-      duration: "0.3s",
-      easing: "cubic-bezier(0.76, 0, 0.24, 1)",
-      fillMode: "both",
-    },
+    old: [
+      {
+        name: "fade-up-in",
+        duration: "0.15s",
+        easing: "ease-in",
+        fillMode: "both",
+        direction: "reverse",
+      },
+    ],
+    new: [
+      {
+        name: "fade-up-out",
+        duration: "0.25s",
+        easing: "ease-out",
+        fillMode: "both",
+        direction: "reverse",
+      },
+    ],
   },
 };
 ---
@@ -47,6 +59,21 @@ const fadeUp = {
 <html lang="de">
   <head>
     <BaseHead title={title} description={description} />
+    <ClientRouter />
+    <style is:global>
+      @keyframes fade-up-in {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+      }
+      @keyframes fade-up-out {
+        to {
+          opacity: 0;
+          transform: translateY(-4px);
+        }
+      }
+    </style>
   </head>
   <body class="font-sans text-text bg-paper">
     <Header />
@@ -59,46 +86,3 @@ const fadeUp = {
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  @keyframes fadeUpOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-  }
-  @keyframes fadeUpIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadeDownOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-  }
-  @keyframes fadeDownIn {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
